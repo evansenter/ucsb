@@ -1,46 +1,0 @@
-8
-
-dir
-639
-http://wush.net/svn/sbdev/evan/school
-http://wush.net/svn/sbdev
-
-
-
-2008-12-15T20:35:07.249988Z
-566
-evansenter
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-420cdfb7-4ac7-4121-a96d-241bc5351e40
-
-CS174A
-dir
-
-CS165B
-dir
-
-CS167
-dir
-
-BLST1
-dir
-
-CS123
-dir
-
-CS130B
-dir
-

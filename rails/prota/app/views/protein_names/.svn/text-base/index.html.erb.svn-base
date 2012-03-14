@@ -1,3 +1,0 @@
-<% for protein_name in @protein_names %>
-  <%= protein_name.name %>: <%= protein_name.protein_id %><br />
-<% end %>

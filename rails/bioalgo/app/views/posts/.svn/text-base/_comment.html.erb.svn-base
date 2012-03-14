@@ -1,4 +1,0 @@
-<div class="comment">
-    <h3><%=h comment.name %></h3>
-    <%= sanitize highlight comment.body %>
-</div>

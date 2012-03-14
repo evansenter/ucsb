@@ -1,6 +1,0 @@
-<tr>
-  <td><%=h crawler.search %></td>
-  <td><%= link_to 'Show', crawler %></td>
-  <td><%= link_to 'Edit', edit_crawler_path(crawler) %></td>
-  <td><%= link_to 'Destroy', crawler, :confirm => 'Are you sure?', :method => :delete %></td>
-</tr>

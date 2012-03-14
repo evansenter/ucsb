@@ -1,3 +1,0 @@
-<% for datasource in @datasources %>
-  <%= datasource.name %><br />
-<% end %>

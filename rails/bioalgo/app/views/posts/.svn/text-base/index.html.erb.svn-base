@@ -1,7 +1,0 @@
-<h1>most recent posts.</h1>
-
-<%= will_paginate @posts %>
-<%= render(:partial => "post", :collection => @posts) %>
-<%= will_paginate @posts %>
-
-<h2><strong><%= link_to 'New post', new_post_path %></strong></h2>
