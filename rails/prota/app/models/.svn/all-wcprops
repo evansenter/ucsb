@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/sbdev/!svn/ver/327/evan/rails/prota/app/models
+END
+histogram.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sbdev/!svn/ver/327/evan/rails/prota/app/models/histogram.rb
+END
+protein_name.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sbdev/!svn/ver/302/evan/rails/prota/app/models/protein_name.rb
+END
+query.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/sbdev/!svn/ver/312/evan/rails/prota/app/models/query.rb
+END
+network.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sbdev/!svn/ver/302/evan/rails/prota/app/models/network.rb
+END
+datasource.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/sbdev/!svn/ver/302/evan/rails/prota/app/models/datasource.rb
+END
+subgraph.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/sbdev/!svn/ver/327/evan/rails/prota/app/models/subgraph.rb
+END

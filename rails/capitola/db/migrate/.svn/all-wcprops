@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/sbdev/!svn/ver/449/evan/rails/capitola/db/migrate
+END
+004_add_phone_numbers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sbdev/!svn/ver/449/evan/rails/capitola/db/migrate/004_add_phone_numbers.rb
+END
+002_add_patient_information.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/db/migrate/002_add_patient_information.rb
+END
+003_add_dental_insurance.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/sbdev/!svn/ver/442/evan/rails/capitola/db/migrate/003_add_dental_insurance.rb
+END
+001_create_medical_histories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/db/migrate/001_create_medical_histories.rb
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sbdev/!svn/ver/521/evan/school/CS167/project_manager/script/plugin
+END

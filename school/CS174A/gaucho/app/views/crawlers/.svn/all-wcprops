@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers/new.html.erb
+END
+_crawler.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers/_crawler.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/crawlers/show.html.erb
+END

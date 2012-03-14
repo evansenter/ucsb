@@ -1,0 +1,27 @@
+<h1>Editing histogram</h1>
+
+<%= error_messages_for :histogram %>
+
+<% form_for(@histogram) do |f| %>
+  <p>
+    <b>Elem</b><br />
+    <%= f.text_field :elem_id %>
+  </p>
+
+  <p>
+    <b>Datasource</b><br />
+    <%= f.text_field :datasource %>
+  </p>
+
+  <p>
+    <b>Num groups</b><br />
+    <%= f.text_field :num_groups %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @histogram %> |
+<%= link_to 'Back', histograms_path %>

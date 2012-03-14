@@ -1,0 +1,28 @@
+<div class="store-form">
+  <%= error_messages_for 'order' %>
+
+  <fieldset><legend>Please enter your details</legend>
+    <% form_for :order, :url => { :action => :commit_order } do |form| %>
+      <p>
+	<label for="order_name">Name:</label>
+	<%= form.text_field :name, :size => 40 %>
+      </p>
+      <p>
+	<label for="order_address">Address:</label>
+	<%= form.text_area :address, :rows => 3, :cols => 40 %>
+      </p>
+      <p>
+	<label for="order_email">Email:</label>
+	<%= form.text_field :email, :size => 40 %>
+      </p>
+      <p>
+	<label for="order_pay_type">Pay type:</label>
+	<%= form.select :pay_type,
+			Order::PAYMENT_TYPES,
+			:prompt => "Select a payment method" %>
+      </p>
+      
+      <%= submit_tag "Place Order", :class => "submit" %>
+    <% end %>
+  </fieldset>
+</div>

@@ -1,0 +1,139 @@
+<h3>Patient Information</h3>
+
+<p>
+  <b>Date Created: </b>
+  <%= h @medical_history.created_at %>
+</p>
+<p>
+  <b>SS/HIC/Patient ID: </b>
+  <%= h @medical_history.patient_id %>
+</p>
+<p>
+  <b>Patient: </b>
+  <%= h @medical_history.patient_name %>
+</p>
+<p>
+  <b>Address: </b>
+  <%= h @medical_history.patient_address %>
+</p>
+<p>
+  <b>City: </b>
+  <%= h @medical_history.patient_city %>
+</p>
+<p>
+  <b>State: </b>
+  <%= h @medical_history.patient_state %>
+</p>
+<p>
+  <b>Zip: </b>
+  <%= h @medical_history.patient_zip %>
+</p>
+<p>
+  <b>Email: </b>
+  <%= h @medical_history.patient_email %>
+</p>
+<p>
+  <b>Birthday: </b>
+  <%= h @medical_history.patient_birthdate %>
+</p>
+<p>
+  <b>Gender: </b>
+  <%= h @medical_history.patient_sex %>
+</p>
+<p>	
+	<b>Relationship Status: </b>
+	<%= h @medical_history.patient_relationship_status %>
+</p>
+<p>
+  <b>Occupation: </b>
+  <%= h @medical_history.patient_occupation %>
+</p>
+
+        <h3>Dental Insurance</h3>
+
+        <p>
+          <b>Who is responsible for this account?: </b>
+          <%= h @medical_history.account_owner %>
+        </p>
+        <p>
+          <b>Relationship to Patient: </b>
+          <%= h @medical_history.owners_relation_to_patient %>
+        </p>
+        <p>
+          <b>Insurance Co.: </b>
+          <%= h @medical_history.owners_insurance_co %>
+        </p>
+        <p>
+          <b>Group #: </b>
+          <%= h @medical_history.owners_group_number %>
+        </p>
+        <p>
+          <b>Is the patient covered by additional insurance?: </b>
+          <%= h @medical_history.patient_has_additional_insurance %>
+        </p>
+        <p>
+          <b>Subscriber's Name: </b>
+          <%= h @medical_history.subscriber_name %>
+        </p>
+        <p>
+          <b>Subscriber's Birthdate: </b>
+          <%= h @medical_history.subscriber_birthday %>
+        </p>
+        <p>
+          <b>Subscriber's SS #: </b>
+          <%= h @medical_history.subscriber_social %>
+        </p>
+        <p>
+          <b>Relationship to Patient: </b>
+          <%= h @medical_history.subscriber_relationship_to_patient %>
+        </p>
+        <p>
+          <b>Insurance Co.: </b>
+          <%= h @medical_history.subscriber_insurance_co %>
+        </p>
+        <p>
+          <b>Group #: </b>
+          <%= h @medical_history.subscriber_group_number %>
+        </p>
+
+        <h3>Phone Numbers</h3>
+
+	<p>
+	  <b>Home: </b><br />
+	  <%= h @medical_history.home_phone %>
+	</p>
+	<p>
+	  <b>Work: </b><br />
+	  <%= h @medical_history.work_phone %>
+	</p>
+	<p>
+	  <b>Cell: </b><br />
+	  <%= h @medical_history.cell_phone %>
+	</p>
+	<p>
+	  <b>Spouse's Work: </b><br />
+	  <%= h @medical_history.spouse_work_phone %>
+	</p>
+	<p>
+	  <b>Best time and place to reach you: </b><br />
+	  <%= h @medical_history.availability %>
+	</p>
+	<p>
+	  <b>Name: </b><br />
+	  <%= h @medical_history.emergency_name %>
+	</p>
+	<p>
+	  <b>Relationship: </b><br />
+	  <%= h @medical_history.emergency_relationship %>
+	</p>
+	<p>
+	  <b>Home Phone: </b><br />
+	  <%= h @medical_history.emergency_home_phone %>
+	</p>
+	<p>
+	  <b>Work Phone: </b><br />
+	  <%= h @medical_history.emergency_work_phone %>
+	</p>
+
+<%= link_to 'Edit', edit_medical_history_path(@medical_history) %> |
+<%= link_to 'Back', medical_histories_path %>

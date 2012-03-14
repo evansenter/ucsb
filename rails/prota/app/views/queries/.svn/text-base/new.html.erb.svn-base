@@ -1,0 +1,24 @@
+<h2>Query configuration</h2>
+
+<%= error_messages_for :query %>
+
+<% form_tag :action => :create do |f| %>
+  <% (1..num_datasources).each do |i| %>
+    <p>
+      <b><%= "Datasource #{i}: " %></b>
+      <%= "Weight " %>
+      <%= text_field_tag "ds_#{i}_weight", rand(10), :size => 3 %>
+      <%= " Enable " %>
+      <%= check_box_tag "ds_#{i}_enabled", "1", true %>
+    </p>
+  <% end %>
+  <p>
+    <b>Genes / proteins of interest: </b><%= text_field_tag "protein_ids", "1, 2, 3-5, 8, 13-21" %>
+    <br /><small>Format may be a combination of individual ids (1, 2, 4) and ranges (3-10, 12-17) - whitespace will be ignored.</small>
+  </p>
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', queries_path %>

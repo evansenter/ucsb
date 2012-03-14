@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/sbdev/!svn/ver/434/evan/rails/bioalgo/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sbdev/!svn/ver/434/evan/rails/bioalgo/app/helpers/application_helper.rb
+END
+comments_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/app/helpers/comments_helper.rb
+END
+posts_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/app/helpers/posts_helper.rb
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store
+END
+checkout.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store/checkout.html.erb
+END
+_cart_item.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store/_cart_item.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store/index.html.erb
+END
+_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store/_cart.html.erb
+END
+add_to_cart.js.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/sbdev/!svn/ver/302/evan/school/CS174A/gaucho/app/views/store/add_to_cart.js.rjs
+END

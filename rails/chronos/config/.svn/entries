@@ -1,0 +1,82 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/rails/chronos/config
+http://wush.net/svn/sbdev
+
+
+
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+420cdfb7-4ac7-4121-a96d-241bc5351e40
+
+routes.rb
+file
+
+
+
+
+2008-09-24T00:42:30.000000Z
+3005a2ed8824a72eab03a101f6e4466e
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+database.yml
+file
+
+
+
+
+2008-09-24T00:42:30.000000Z
+bbef680f98eb4d3e714013b205c6ce3a
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+boot.rb
+file
+
+
+
+
+2008-09-24T00:42:30.000000Z
+62fe46fd028f9df081e4ec9eb85968c0
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+initializers
+dir
+
+environment.rb
+file
+
+
+
+
+2008-09-24T00:42:30.000000Z
+85d3b8a84b08d2f83f17938144b27b75
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+environments
+dir
+

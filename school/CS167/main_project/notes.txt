@@ -1,0 +1,46 @@
+3.914 updated, with prints    /Users/evansenter/Downloads/raw_data/ms2/051018_Jason_dDAVP_FT/data
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/Users/evansenter/Downloads/raw_data/ms2/051018_Jason_dDAVP_FT/single
+
+Original run:
+  [12.459803000526339, 12.09709359473822, 11.759537298768146, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  [23.301229365045828, 22.118139721761995, 21.6096356831252, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+Note of data discrepancy:
+  Starting Scan sample01.1291.1291.3.dta
+  Cost: 2.1
+  Level: 1 [2.1, 2.1, 2.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  ConvertNodeToModifier -> mod: 0
+  Adjusting cost: Before = 2.1
+  Adjusting cost for 0: After = 12.459803000526339
+  ConvertNodeToModifier -> mod: 1
+  Adjusting cost: Before = 2.1
+  Adjusting cost for 1: After = 12.09709359473822
+  ConvertNodeToModifier -> mod: 2
+  Adjusting cost: Before = 2.1
+  Adjusting cost for 2: After = 11.759537298768146
+  Level: 1 [12.459803000526339, 12.09709359473822, 11.759537298768146, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  Level: 2 [12.459803000526339, 12.09709359473822, 11.759537298768146, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+The method that is adjusting these scores is below:
+  for (int i=zstate-1; i >= ((zstate - 1) * (1 - (int) mode/2) ); i--) {
+		cost += profiles[i].Cost(ionsites[level-1], ionsites[level]-1, spectrum);
+	}
+	
+This method does not appear to get called in the new version, but is in the old version.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/Users/evansenter/Downloads/raw_data/ms2/GygiSyntheticData/data
+
+763 files.
+
+(14.914)
+
+Things of note for the paper.
+
+(With depth first (With pruning) the software can handle one less phospho site).
+Mention the avg. time saved for leaf pruning.
+Add files and links to the site a la CSS Garden.

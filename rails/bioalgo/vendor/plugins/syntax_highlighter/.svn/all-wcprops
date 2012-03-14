@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sbdev/!svn/ver/416/evan/rails/bioalgo/vendor/plugins/syntax_highlighter
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/Rakefile
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/init.rb
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/install.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/MIT-LICENSE
+END
+uninstall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/uninstall.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/sbdev/!svn/ver/412/evan/rails/bioalgo/vendor/plugins/syntax_highlighter/README
+END

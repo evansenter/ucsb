@@ -1,0 +1,52 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/school/CS167/Assignments/code/tests/unit
+http://wush.net/svn/sbdev
+
+
+
+2008-10-23T03:09:51.997969Z
+521
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+string_extensions_test.rb
+file
+
+
+
+
+2008-10-15T21:34:16.000000Z
+9382813ddd286a9a51db3af6890902e4
+2008-10-23T03:09:51.997969Z
+521
+evansenter
+
+regexp_extensions_test.rb
+file
+
+
+
+
+2008-10-15T21:34:34.000000Z
+cf34e5adec93259e03cf784b67d952f6
+2008-10-23T03:09:51.997969Z
+521
+evansenter
+
+translator_test.rb
+file
+
+
+
+
+2008-10-15T22:01:39.000000Z
+c0a440a2ed0fdfa4e3cfb5e1cb5409cd
+2008-10-23T03:09:51.997969Z
+521
+evansenter
+

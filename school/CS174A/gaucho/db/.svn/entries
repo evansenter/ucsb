@@ -1,0 +1,69 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/school/CS174A/gaucho/db
+http://wush.net/svn/sbdev
+
+
+
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+420cdfb7-4ac7-4121-a96d-241bc5351e40
+
+schema.rb
+file
+
+
+
+
+2008-09-24T00:42:26.000000Z
+1cd73380f60e6994a46d4958fcc459ec
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+test.sqlite3
+file
+
+
+
+
+2008-09-24T00:42:26.000000Z
+a8abac03696d32e9e4b500a063eb1cdb
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+has-props
+
+development.sqlite3
+file
+
+
+
+
+2008-09-24T00:42:26.000000Z
+777943aecf756929b77355647f8cc03f
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+has-props
+
+migrate
+dir
+

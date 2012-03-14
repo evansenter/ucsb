@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sbdev/!svn/ver/522/evan/school/CS167/project_manager/app/helpers
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sbdev/!svn/ver/522/evan/school/CS167/project_manager/app/helpers/users_helper.rb
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/sbdev/!svn/ver/522/evan/school/CS167/project_manager/app/helpers/application_helper.rb
+END
+sessions_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbdev/!svn/ver/522/evan/school/CS167/project_manager/app/helpers/sessions_helper.rb
+END
+projects_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbdev/!svn/ver/522/evan/school/CS167/project_manager/app/helpers/projects_helper.rb
+END

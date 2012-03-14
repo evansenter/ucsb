@@ -1,0 +1,35 @@
+Issues:
+
+Cell - cell collisions
+	-> Sort by fitness	2
+Reproduction (Mitosis)
+	-> New cells should be placed near their parent rather than randomly (Incorporate into the chromosome)	1
+	-> Induced mitosis at specific ages and fitness levels	2
+	-> Fitness penalty for mitosis	1
+	-> Balance starting fitness, etc and when they die	3
+Environment layered seperately from cells	1
+Gene level fitness
+(1) Chromosome class					(COMPLETE)
+	-> 1 chromosome for each set of genetic modifiers (cell type, interactions, ...)	1 (COMPLETE)
+(2) Gene class
+Cells have names that express the similarities of their chromosomes (Or some sort of id marker for like / notlike cell)	
+	-> You could allow cells to broadcast a random integer that only mutates in small steps to express the evolutionary similarity of 2 cells	(1)
+Cell layering	  3
+Change age to a birth tick so you don't have to continually update all the cell's age each round	2
+Poison food cells as well as regular ones		2
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Restricted mating is another dimension being explored to allow a population to develop multiple niches.
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Things that should be under the control of the chromosome
+	-> Crossover frequency (Need a function that gives higher probability of a crossover occuring at a homologous region of the chromosome pairs
+	-> Mutation frequency
+	-> Mitosis conditions
+	-> Starting fitness
+	
+	-> Response to surroundings
+	
+	-> Signalling / Receiving

@@ -1,0 +1,249 @@
+General Discussion:
+
+  For this final assignment I've included the entire framework I've written for these homeworks. I hoped from the beginning of the class to start working on a library of tools usable by myself to solve the problems of this class, and in many ways I think I've succeeded. While by no means they are release-ready (I got a bit lazy in writing unit tests) I have been able to build each assignment out of the ashes of the last. The library is in Ruby, and it's quite slow compared to some C counterparts, but well commented, concise, and a great learning experience to write. I got to dabble in some metaprogramming for this last assignment (See lib/motif_and_background_matrices_module.rb), and write a collection of extensions to the Ruby language (lib/*.rb) specifically geared towards the problems we have been addressing. The individual models are in code/objects, in which you will find translator.rb, a collection of methods for going from DNA -> RNA -> Protein sequences - completely tested, an implementation of the Needleman-Wunsch algorithm in needle.rb, as well as the questions for this assignment which I talk about below: markov.rb, gibbs.rb and distance_matrix.rb.
+  
+  
+  
+  
+  
+
+Results and discussion pertaining to question 1 and 3: 
+
+I found that after constructing the position-sensitive motif matrix (M) and background matrix (B) from the 10 training sequences for the Markov simulation, I was able to achieve accurate results for the remaining 5 test sequences. All 5 sequences had their motif starting point correctly predicted, and the results were generated very quickly.
+
+The data from Gibbs sampling was a bit more problematic. I tried running under a number of different scenarios, and found the following results. First off - Gibbs sampling takes much longer than the Markov simulation, particularly because of the warm up period. When using only the 5 test sequences, 3 were correctly predicted:
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+When using all 15 sequences, the 5 test motif locations were found correctly in the same number of steps, 1,000 cycles for a warm up and then 10,000 iterations. The motif index is determined by the most visited index for a motif in that sequence, and the starting positions for all indices are randomized from the beginning.
+
+Clearly, Markov seems a much better solution if some prior knowledge of the motif is known and can be used for training data, but Gibbs' strong point lies in its effectiveness where no information is had. The data discussed here is below, and attached is the necessary code to run the program.
+
+Results and discussion pertaining to question 4:
+
+First off, only the first matrix is additive and neither are ultrametric. Regarding the code for the neighbor join (NJ) algorithm...
+
+The code for question 4 is not fully implemented - in the sense that you can not do a full neighbor join on a matrix provided by the user. The reason for this is that I got one iteration through the coding before realizing that I didn't have an effective mapping from indices to labels, and since any two arbitrary indices can be combined, I couldn't very well map from the tree to the matrix and back. I went through and tried converting it to a hash but it made the math more complicated, so in the interest of time (And my take home final :P) I decided to do it by hand, with methods for each iteration. The intermediary matricies are below, in the 'Data for question 4' section, as are the final trees.
+
+The trees did not seem to come out correctly as they both have one negative edge, which came out when calculating the distance from the pair to the node that would combine them. Because of that I decided to forgo part iii; it seems both my trees have an error of 1. I've encoded them below in a nested hash, where keys represent edge lengths and values are either hashes (In the case of a node) or symbols (In the case of a leaf).
+
+Results and discussion pertaining to question 6:
+
+O = Hydrophilic, X = Hydrophobic. Assuming diagonals don't count, the score of the protein is -4.
+
+  O--O--O--O
+  |        |
+  O  O--X  X
+  |  |  |  |
+  X  X  X  X
+  |  |  |  |
+  O  O  O  O
+  |  |     |
+  O--X  X--O
+  
+Score: -5!
+  
+Results and discussion pertaining to question 8:
+
+  Polar amino acid: An amino acid ((NH2)CHR(COOH)) in which there is an electropositive and electronegative region. This results from the unequal sharing of electrons (due to variations in the electronegativity of atoms in covalent bonds) or an uneven distribution of charged ions. The result is the amino acid is hydrophilic.
+  
+  Peptide bond: A peptide bond (Amide bond when not referring specifically to amino acids) is what links the amino acids together to become a polypeptide. The bond involves the N-terminus of one amino acid and the C-terminus of the other in a condensation reaction, releasing one H2O to form a -(C=O)NH- bond between the C-beta and N of two amino acids. Just as a primary protein sequence has direction from N -> C, the peptide bond always goes from C -> N.
+  
+  Ramachandran plot: This is a three dimensional plot of the probability of seeing a certain phi/psi angle combination. Because a given amino acid only has 2 degrees of freedom for rotation of its backbone, the relative 3D structure of a protein can be expressed as a string of phi/psi bonds (The bond lengths are relatively constant and we are ignoring the residues on the amino acids for now). The likelihoods on the plot are roughly distributed into three patches which directly correlate with what secondary structure element that amino acid is in, R-helices, L-helices (much more rare) and beta sheets.
+  
+  Bootstrapping (trees): Bootstrapping trees is a method of evaluating the statistical significance of an internal branch of a phylogenetic tree derived from a collection of sequences. By generating a tree from a collection of sequences, and then randomly generating sequences (By mixing up the columns) one can measure the frequency of appearance for an internal branch, and thus get an idea of it's signifigance.
+  
+  
+  
+  
+  
+  
+A L L   T H E   D A T A   S T A R T S   H E R E
+
+Data for questions 1, 3:
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "markov.rb"; Markov.new.run_and_print
+- - - - - R U N N I N G   M A R K O V - - - - -
+
+Calculating the most likely motif location with a product.
+
+ACTUAL:     Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+CALCULATED: Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+
+ACTUAL:     Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+CALCULATED: Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+
+ACTUAL:     Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+CALCULATED: Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+
+ACTUAL:     Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+CALCULATED: Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+ACTUAL:     Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+CALCULATED: Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+
+Calculating the most likely motif location with a sum.
+
+ACTUAL:     Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+CALCULATED: Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+
+ACTUAL:     Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+CALCULATED: Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+
+ACTUAL:     Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+CALCULATED: Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+
+ACTUAL:     Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+CALCULATED: Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+ACTUAL:     Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+CALCULATED: Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+
+
+Motif matrix: [{:G => 0.0, :T => 0.7, :A => 0.0, :C => 0.3}, {:G => 0.0, :T => 0.6, :A => 0.0, :C => 0.4}, {:G => 0.1, :T => 0.6, :A => 0.2, :C => 0.1}, {:G => 0.0, :T => 0.0, :A => 1.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 1.0, :T => 0.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 0.5, :A => 0.0, :C => 0.5}]
+Background matrix: {:G => 0.246666666666667, :T => 0.27, :A => 0.256666666666667, :C => 0.226666666666667}
+
+- - - - - D O N E - - - - -
+
+
+
+
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "gibbs.rb"; Gibbs.new(:combine_data? => false).run_and_print
+- - - - - R U N N I N G   G I B B S - - - - -
+Note: 1000 iteration warm up, 10000 steps after the warm up period.
+
+Calculating the most likely motif location with a product.
+
+Finished warming up.
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 0
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 0
+
+Motif matrix: [{:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.1, :A => 0.0, :C => 0.1, :G => 0.2}, {:T => 0.0, :A => 0.4, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 0.4}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.241666666666667, :C => 0.258333333333333, :G => 0.233333333333333}
+
+Calculating the most likely motif location with a sum.
+
+Finished warming up.
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 0
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 0
+
+Motif matrix: [{:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.1, :G => 0.3}, {:T => 0.0, :A => 0.4, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 0.4}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}]
+Background matrix: {:T => 0.258333333333333, :A => 0.225, :C => 0.283333333333333, :G => 0.233333333333333}
+
+- - - - - D O N E - - - - -
+
+
+
+
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "gibbs.rb"; Gibbs.new.run_and_print
+- - - - - R U N N I N G   G I B B S - - - - -
+Note: 1000 iteration warm up, 10000 steps after the warm up period.
+
+Calculating the most likely motif location with a product.
+
+Finished warming up.
+
+Sequence [AAATCCCTTTTGTCTATTGTTTGAAAGTGGTGGGGCCATG]'s motif starts at index 12
+Sequence [AAGGACGATATTGTTTTCGATTGTTCCAGAGATACATTTC]'s motif starts at index 16
+Sequence [ACGAATAGTCTATCTATTGTTTCTGAGAAAGACACCCATG]'s motif starts at index 12
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATATTGTGTTTATTGTTTACCTACCGAACACATATGACAG]'s motif starts at index 8
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GAGTCCCCCTTTCTCTTATTGTTCCAGTGGTTCGTCCACC]'s motif starts at index 14
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [GGCTTTGGGACAGTCATGGCCAATTGTTCGTTATTCTGCC]'s motif starts at index 19
+Sequence [TACGTTTAGTCGGTCTTAATTGTTCCAGTACCCAGGTCGG]'s motif starts at index 15
+Sequence [TCGGCGGTGGTAGACCTTATTGTTCCGCAACCACATCTAT]'s motif starts at index 15
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+Sequence [TTAGGGAGTACTCATTTCATTGTTTATAATAATGCGATCA]'s motif starts at index 15
+Sequence [TTGAGCTAAATTATCTTTATTGTTTCGTGGCCGCATGATG]'s motif starts at index 15
+
+Motif matrix: [{:T => 1.0, :A => 0.0, :C => 0.4, :G => 0.0}, {:T => 0.9, :A => 0.0, :C => 0.5, :G => 0.0}, {:T => 0.6, :A => 0.2, :C => 0.2, :G => 0.4}, {:T => 0.0, :A => 1.4, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 1.4}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.8, :A => 0.0, :C => 0.6, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.254761904761905, :C => 0.245238095238095, :G => 0.233333333333333}
+
+Calculating the most likely motif location with a sum.
+
+Finished warming up.
+
+Sequence [AAATCCCTTTTGTCTATTGTTTGAAAGTGGTGGGGCCATG]'s motif starts at index 12
+Sequence [AAGGACGATATTGTTTTCGATTGTTCCAGAGATACATTTC]'s motif starts at index 16
+Sequence [ACGAATAGTCTATCTATTGTTTCTGAGAAAGACACCCATG]'s motif starts at index 12
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATATTGTGTTTATTGTTTACCTACCGAACACATATGACAG]'s motif starts at index 8
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GAGTCCCCCTTTCTCTTATTGTTCCAGTGGTTCGTCCACC]'s motif starts at index 14
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [GGCTTTGGGACAGTCATGGCCAATTGTTCGTTATTCTGCC]'s motif starts at index 19
+Sequence [TACGTTTAGTCGGTCTTAATTGTTCCAGTACCCAGGTCGG]'s motif starts at index 15
+Sequence [TCGGCGGTGGTAGACCTTATTGTTCCGCAACCACATCTAT]'s motif starts at index 15
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+Sequence [TTAGGGAGTACTCATTTCATTGTTTATAATAATGCGATCA]'s motif starts at index 15
+Sequence [TTGAGCTAAATTATCTTTATTGTTTCGTGGCCGCATGATG]'s motif starts at index 15
+
+Motif matrix: [{:T => 1.0, :A => 0.0, :C => 0.4, :G => 0.0}, {:T => 0.9, :A => 0.0, :C => 0.5, :G => 0.0}, {:T => 0.6, :A => 0.2, :C => 0.2, :G => 0.4}, {:T => 0.0, :A => 1.4, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 1.4}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.8, :A => 0.0, :C => 0.6, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.254761904761905, :C => 0.245238095238095, :G => 0.233333333333333}
+
+- - - - - D O N E - - - - -
+
+
+
+
+
+Data for question 4:
+
+MATRIX_11 = [[0],
+             [9, 0],
+             [8, 3, 0],
+             [7, 6, 5, 0],
+             [8, 7, 6, 3, 0]]
+  
+MATRIX_12 = [[0],
+             [4, 0],
+             [3, 3, 0],
+             [1, 6, 5, 0]]
+    
+MATRIX_13 = [[0],
+             [2, 0],
+             [1.5, 6, 0]]
+      
+MATRIX_14 = [[0],
+             [1.25, 0]]
+             
+Final tree: (2.75: D, 3.25: B, -1.25: (2.25: C, 0.75: (2.67: E, 5.33: A)))
+
+MATRIX_21 = [[0],
+             [4,  0],
+             [8,  6,  0],
+             [11, 8,  3,  0],
+             [5,  4,  6,  8,  0]] 
+
+MATRIX_22 = [[0],
+             [5,  0],
+             [7.5,  3,  0],
+             [2.5,  6,  8,  0]] 
+  
+MATRIX_23 = [[0],
+             [2.75,  0],
+             [1.75,  8,  0]]
+             
+MATRIX_24 = [[0],
+             [3.5, 0]]
+             
+Final tree: (3.5: E, 4.5: D, -1.75: (2.75: C, 2.25: (1: B, 3: A)))

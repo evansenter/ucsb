@@ -1,0 +1,26 @@
+<%= error_messages_for :work_session %>
+
+<% form_for(@work_session) do |f| %>
+  <table align=center>
+    <tr>
+      <td>
+	<p><ul>
+	  <li><b>name: </b><br>
+	    <%= f.text_field :name, :size => 30 %></li>
+	  <li><b>Project</b><br>
+	    <%= f.text_field :project %></li>
+	  <li><b>Created at</b><br>
+	    <%= f.text_field :created_at %></li>
+	  <li><b>Ended at</b><br>
+	    <%= f.text_field :ended_at %></li>
+	</ul></p>
+      </td>
+    </tr>
+    <tr>
+      <td align=center>
+	<%= f.submit "update_entry" %><br><br>
+	<b>A question: </b><i>Are you ready to <%= link_to 'go back', work_sessions_path %> or should we <%= link_to 'take another peek?', @work_session %></i>
+      </td>
+    </tr>
+  </table>
+<% end %>

@@ -1,0 +1,17 @@
+<h1>User administration</h1>
+<ul>
+  <% for user in @all_users %>
+    <li><%= h(user.name) %>&nbsp;
+    <% if admin? %>
+      <%= link_to "(Delete)", { :action => "delete_user",
+				:id => user },
+			  {	:method => "post",
+				:confirm => "Really delete #{user.name}?" } %>
+      <%= link_to "(Give administrative rights)", { :action => "give_admin",
+						    :id => user },
+						  { :method => "post",
+						    :confirm => "Really give administrative rights to #{user.name}?" } %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

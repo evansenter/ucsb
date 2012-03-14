@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/db/migrate
+END
+003_posts_have_many_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/db/migrate/003_posts_have_many_comments.rb
+END
+002_create_comments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/db/migrate/002_create_comments.rb
+END
+001_create_posts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/db/migrate/001_create_posts.rb
+END

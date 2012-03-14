@@ -1,0 +1,81 @@
+Homo sapiens (Sequence id - 0): MTGLALLYSGVFVAFWACALAVGVCYTIFDLGFRFDVAWFLTETSPFMWSNLGIGLAISLSVVGAAWGIYITGSSIIGGGVKAPRIKTKNLVSIIFCEAVAIYGIIMAIVISNMAEPFSATDPKAIGHRNYHAGYSMFGAGLTVGLSNLFCGVCVGIVGSGAALADAQNPSLFVKILIVEIFGSAIGLFGVIVAILQTSRVKMGD
+
+Bos taurus (Sequence id - 1): MTGLVLLYSGVFVAFWACLLVVGICYTIFDLGFRFDVAWFLTETSPFMWSNLGIGLAISLSVVGAAWGIYITGSSIIGGGVKAPRIKTKNLVSIIFCEAVAIYGIIMAIVISNMAEPFSATDPKAIGHRNYHAGYSMFGAGLTVGLSNLFCGVCVGIVGSGAALADAQNPSLFVKILIVEIFGSAIGLFGVIVAILQTSRVKMGD
+
+Caenorhabditis elegans (Sequence id - 2): MAAGAILKTTATLTVITTLIILGTGLFYMLSGQGHRFDIGWFLTSTSPHMWAGLGIGFSLSLSVLGAGWGIFTTGSSILGGGVKAPRIRTKNLVSIIFCEAVAIFGIIMAFVFVGKLAEFRREDLPDTEDGMAILARNLASGYMIFGGGLTVGLSNLVCGLAVGIVGSGAAIADAANPALFVKILIIEIFASAIGLFGMIIGIVQTNKASFGNK
+
+Canis familiaris (Sequence id - 3): MTGLALLYSGVFVAFWACMVVVGICYTIFDLGFRFDVAWFLTETSPFMWSNLGIGLAISLSVVGAAWGIYITGSSIIGGGVKAPRIKTKNLVSIIFCEAVAIYGIIMAIVISNMAEPFSATDPQAIGHRNYHAGYSMFGAGLTVGLSNLFCGVCVGIVGSGAALADAQNPSLFVKILIVEIFGSAIGLFGVIVAILQTSRVKMGD
+
+Danio rerio (Sequence id - 4): MMNGHAILYTGVTLAFWSTMVIVGICYTIFDLGFRFDVAWFLTETSPFMWANLGIGLAISLSVVGAAWGIYITGSSIIGGGVKAPRIKTKNLVSIIFCEAVAIYGIIMAIVISNLAENFSGTTPETIGSKNYQAGYSMFGAGLTVGFSNLFCGICVGIVGSGAALADAQNANLFVRILIVEIFGSAIGLFGVIVAILQTSKVKMGN
+
+Fungi/Metazoa group (Paralog) (Sequence id - 5): MSESKSGPEYASFFAVMGASAAMVFSALGAAYGTAKSGTGIAAMSVMRPEQIMKSIIPVVMAGIIAIYGLVVAVLIANSLNDDISLYKSFLQLGAGLSVGLSGLAAGFAIGIVGDAGVRGTAQQPRLFVGMILILIFAEVLGLYGLIVALILSTK
+
+(----- D A T A -----)
+
+Sequence 0, 1:
+Score =  397 bits (1021),  Expect = 5e-116, Method: Compositional matrix adjust.
+Identities = 201/205 (98%), Positives = 202/205 (98%), Gaps = 0/205 (0%)
+ 
+Sequence 0, 2:
+Score =  213 bits (543),  Expect = 1e-60, Method: Compositional matrix adjust.
+Identities = 122/192 (63%), Positives = 145/192 (75%), Gaps = 6/192 (3%)
+
+Sequence 0, 3:
+Score =  397 bits (1021),  Expect = 6e-116, Method: Compositional matrix adjust.
+Identities = 200/205 (97%), Positives = 203/205 (99%), Gaps = 0/205 (0%)
+
+Sequence 0, 4:
+Score =  352 bits (904),  Expect = 2e-102, Method: Compositional matrix adjust.
+Identities = 176/205 (85%), Positives = 191/205 (93%), Gaps = 0/205 (0%)
+
+Sequence 0, 5:
+Score = 80.5 bits (197),  Expect = 2e-20, Method: Compositional matrix adjust.
+Identities = 49/152 (32%), Positives = 87/152 (57%), Gaps = 10/152 (6%)
+
+
+
+Sequence 1, 2:
+Score =  213 bits (541),  Expect = 3e-60, Method: Compositional matrix adjust.
+Identities = 122/193 (63%), Positives = 146/193 (75%), Gaps = 6/193 (3%)
+
+Sequence 1, 3:
+Score =  399 bits (1026),  Expect = 2e-116, Method: Compositional matrix adjust.
+Identities = 201/205 (98%), Positives = 204/205 (99%), Gaps = 0/205 (0%)
+
+Sequence 1, 4:
+Score =  353 bits (907),  Expect = 9e-103, Method: Compositional matrix adjust.
+Identities = 176/205 (85%), Positives = 192/205 (93%), Gaps = 0/205 (0%)
+
+Sequence 1, 5:
+Score = 80.1 bits (196),  Expect = 2e-20, Method: Compositional matrix adjust.
+Identities = 49/152 (32%), Positives = 86/152 (56%), Gaps = 10/152 (6%)
+
+
+
+Sequence 2, 3:
+Score =  233 bits (593),  Expect = 3e-66, Method: Compositional matrix adjust.
+Identities = 122/190 (64%), Positives = 147/190 (77%), Gaps = 8/190 (4%)
+
+Sequence 2, 4:
+Score =  238 bits (608),  Expect = 5e-68, Method: Compositional matrix adjust.
+Identities = 130/213 (61%), Positives = 158/213 (74%), Gaps = 8/213 (3%)
+
+Sequence 2, 5:
+Score = 72.4 bits (176),  Expect = 4e-18, Method: Compositional matrix adjust.
+Identities = 47/158 (29%), Positives = 82/158 (51%), Gaps = 16/158 (10%)
+
+
+
+Sequence 3, 4:
+Score =  358 bits (919),  Expect = 4e-104, Method: Compositional matrix adjust.
+Identities = 179/205 (87%), Positives = 193/205 (94%), Gaps = 0/205 (0%)
+
+Sequence 3, 5:
+Score = 80.5 bits (197),  Expect = 2e-20, Method: Compositional matrix adjust.
+Identities = 49/152 (32%), Positives = 86/152 (56%), Gaps = 10/152 (6%)
+
+
+
+Sequence 4, 5:
+Score = 76.6 bits (187),  Expect = 2e-19, Method: Compositional matrix adjust.
+Identities = 50/153 (32%), Positives = 87/153 (56%), Gaps = 12/153 (7%)

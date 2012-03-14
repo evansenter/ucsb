@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate
+END
+002_format_time_worked.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate/002_format_time_worked.rb
+END
+004_switch_ended_at_to_datetime.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate/004_switch_ended_at_to_datetime.rb
+END
+005_remove_time_worked_from_work_sessions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate/005_remove_time_worked_from_work_sessions.rb
+END
+003_modify_work_sessions_table.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate/003_modify_work_sessions_table.rb
+END
+001_create_work_sessions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/sbdev/!svn/ver/302/evan/rails/chronos/db/migrate/001_create_work_sessions.rb
+END

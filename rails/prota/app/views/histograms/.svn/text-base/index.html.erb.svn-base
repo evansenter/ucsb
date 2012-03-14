@@ -1,0 +1,30 @@
+<h1>Listing previously generated histograms</h1>
+
+<table>
+  <tr>
+    <th>Elem</th>
+    <th>Datasource</th>
+    <th>Num groups</th>
+    <th>Min score</th>
+    <th>Max score</th>
+    <th>Step size</th>
+  </tr>
+
+<% for histogram in @histograms %>
+  <tr>
+    <td><%=h histogram.elem_id %></td>
+    <td><%=h histogram.datasource %></td>
+    <td><%=h histogram.num_groups %></td>
+    <td><%=h histogram.min_score %></td>
+    <td><%=h histogram.max_score %></td>
+    <td><%=h histogram.step_size %></td>
+    <td><%= link_to 'Show', histogram %></td>
+    <td><%= link_to 'Edit', edit_histogram_path(histogram) %></td>
+    <td><%= link_to 'Destroy', histogram, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h3><%= link_to 'New histogram', new_histogram_path %></h3>

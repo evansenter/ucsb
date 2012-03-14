@@ -1,0 +1,69 @@
+1) MGCRRN
+   WDVAET
+
+3) Homologs can be identified by using BLAST techniques to identify similar gene sequences that have a high probability of related functionality. Orthologous sequences are generated through a speciation (And can be identified by phylogenetic analysis of gene lineage), while paralogous sequences are generated through a gene duplication (And can be identified by a BLAST based approach). An example of an ortholog are the FLO/LFY genes in plants (That regulate the transition from inflorescence to floral meristem), and a common example of a paralog are the hemoglobin / myoglobin genes in humans. 
+
+4) No, transcription and translation have different starting points. For gene translation, the appropriate promoter region must be found downstream (-35 and -10 bp) of the gene to be transcribed so that the RNA polymerase can bind and begin mRNA synthesis. After the mRNA is finished being transcribed, the ribosomal complex associates with the gene transcript and begins reading from 5' to 3' looking for the start codon (Generally AUG) which marks the beginning of the protein before beginning translation.
+
+6) Alternate splicing is a method by which a pre-mRNA sequence can generate multiple mRNA transcripts, all coding for different protein isoforms. 
+
+8) Central dogma - That the genomic flow of information is one-way and goes from DNA to RNA to proteins.
+   Translation - The transfer of a DNA nucleotide sequence to that of an mRNA sequence, which can be interpolated into a protein.
+   PCR - A technique used to amplify a segment of DNA by utilizing DNA polymerase to exponentially reproduce the segment in question.
+   Notes:
+    - Polymerase Chain Reaction (PCR)
+      - Required components:
+        - DNA template to be amplified
+        - Complementary primers
+        - DNA polymerase (Taq polymerase)
+        - Deoxynucleoside triphosphates (To build complementary strand)
+      - Steps:
+        - Initialization step
+        - Denaturation step
+        - Annealing step
+        - Extension / elongation step
+        - Final elongation step
+        - Final hold step
+   Genetic programming - A machine learning algorithm in which one generates a collection of viable programs designed to complete a task, and the programs are 'selected' and 'bred' based on their viability at completing the task in question. A common example is finding a regression function for a function in question, using the language of valid arithmetic statements (Which can be represented and bred by exchanging subtrees, similar to reverse polish notation).
+   Transcription factor - A transcription factor (In eukaryotes) regulates the transcription of DNA to RNA by binding to the DNA and either increases or decreases transcription.  
+   cDNA - Complementary DNA is used to express eukaryotic genes in prokaryotic hosts - in order to do so one must remove the introns of the DNA prior to introducing it to the host along with providing the proper promoter sequences so that the gene can be expressed properly. By using reverse transcriptase, one can generate a DNA sequence from an already spliced mRNA complex and then introduce it into a prokaryotic host for translation.
+
+10) 
+    Some prep:
+      original_sequence = "gcatatcgtaatgccata"
+
+    1. Translator.complement(original_sequence)
+    Returns: "cgtatagcattacggtat" (3'- cgtatagcattacggtat -5')
+    
+    2. If you run Translator.nucleotide_frequency(first_million_bp_of_y_chromosome, :case_insensitive => true) you get:
+    Percent appearance: A => 0.224424, C => 0.215567, G => 0.216037, T => 0.231529, so:
+    Probability of appearance: 1.9135431247612e-12
+    
+    3. 0
+    
+    4. Translator.translate(Translator.to_mrna(original_sequence))
+    Returns: "ayrnai"
+
+11) 
+    Some prep:
+      full_sequence = "atggtgctgtctcctgccgacaagaccaacgtcaaggccgcctggggtaaggtcggcgcgcacgctggcgagtatggtgcggaggccctggagaggcacttcgacctgagccacggctctgcccaagttaagggccacggcaagaaggtggccgacgcgctgaccaacgccgtggcgcacgtggacgacatgcccaacgcgctgtccgccctgagcgacctgcacgcgcacaagcttcgggtggacccggtcaacttcaagctaagccactgcctgctggtgaccctggccgcccacctccccgccgagttcacccctgcggtgcacgcttccctggacaagttcctggcttctgtgagcaccgtgctgacctccaaataccgttaa"
+
+      mrna_sequence = "auggugcugucuccugccgacaagaccaacgucaaggccgccugggguaaggucggcgcgcacgcuggcgaguauggugcggaggcccuggagaggcacuucgaccugagccacggcucugcccaaguuaagggccacggcaagaagguggccgacgcgcugaccaacgccguggcgcacguggacgacaugcccaacgcgcuguccgcccugagcgaccugcacgcgcacaagcuucggguggacccggucaacuucaagcuaagccacugccugcuggugacccuggccgcccaccuccccgccgaguucaccccugcggugcacgcuucccuggacaaguuccuggcuucugugagcaccgugcugaccuccaaauaccguuaa"
+
+      aa_sequence = "mvlspadktnvkaawgkvgahageygaealerhfdlshgsaqvkghgkkvadaltnavahvddmpnalsalsdlhahklrvdpvnfklshcllvtlaahlpaeftpavhasldkflasvstvltskyr!"
+
+    1. Translator.to_mrna(full_sequence)
+    Returns: mrna_sequence
+    
+    2. Translator.translate(mrna_sequence)
+    Returns: aa_sequence (! indicates a stop codon)
+
+    3. Translator.collect(full_sequence, [134..135, 288..289, 455..456, 596..597], :one_indexed => true)
+    Returns: "tgcggttc" (tg cg gt tc, so no the pattern is not consistent)
+
+    4. Translator.percent_appearance("aug", full_sequence, :case_insensitive => true) > (Float(3) / full_sequence.length)
+    Returns: true (So yes, there is more than one ORF in the full_sequence)
+
+    5. Noted. :)
+    
+    6. Attached in screenshot.

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Chronos: <%= controller.action_name %></title>
+  
+  <script type="text/javascript" src="/javascripts/prototype.js"></script>
+  <script type="text/javascript" src="/javascripts/application.js"></script>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<center>
+  <p><h1>[ C H R O N O S ]</h1></p>
+  <p>( <%= link_to "clock in", :action => :new %> )</p>
+  <p style="color: black"><%= flash[:notice] %></p>
+</center>
+
+<%= yield  %>
+
+<table align=center>
+  <tr>
+    <th><i>Navigation:</i></th>
+    <th><%= link_to "Home", :action => :index %></th>
+  </tr>
+</table> 
+
+</body>
+</html>

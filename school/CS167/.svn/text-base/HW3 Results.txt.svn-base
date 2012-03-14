@@ -1,0 +1,153 @@
+Results and discussion pertaining to question 1 and 3: 
+
+I found that after constructing the position-sensitive motif matrix (M) and background matrix (B) from the 10 training sequences for the Markov simulation, I was able to achieve accurate results for the remaining 5 test sequences. All 5 sequences had their motif starting point correctly predicted, and the results were generated very quickly.
+
+The data from Gibbs sampling was a bit more problematic. I tried running under a number of different scenarios, and found the following results. First off - Gibbs sampling takes much longer than the Markov simulation, particularly because of the warm up period. When using only the 5 test sequences, 3 were correctly predicted:
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+When using all 15 sequences, the 5 test motif locations were found correctly in the same number of steps, 1,000 cycles for a warm up and then 10,000 iterations. The motif index is determined by the most visited index for a motif in that sequence, and the starting positions for all indices are randomized from the beginning.
+
+Clearly, Markov seems a much better solution if some prior knowledge of the motif is known and can be used for training data, but Gibbs' strong point lies in its effectiveness where no information is had. The data discussed here is below, and attached is the necessary code to run the program.
+
+Data:
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "markov.rb"; Markov.new.run_and_print
+- - - - - R U N N I N G   M A R K O V - - - - -
+
+Calculating the most likely motif location with a product.
+
+ACTUAL:     Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+CALCULATED: Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+
+ACTUAL:     Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+CALCULATED: Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+
+ACTUAL:     Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+CALCULATED: Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+
+ACTUAL:     Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+CALCULATED: Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+ACTUAL:     Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+CALCULATED: Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+
+Calculating the most likely motif location with a sum.
+
+ACTUAL:     Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+CALCULATED: Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+
+ACTUAL:     Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+CALCULATED: Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+
+ACTUAL:     Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+CALCULATED: Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+
+ACTUAL:     Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+CALCULATED: Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+
+ACTUAL:     Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+CALCULATED: Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+
+
+Motif matrix: [{:G => 0.0, :T => 0.7, :A => 0.0, :C => 0.3}, {:G => 0.0, :T => 0.6, :A => 0.0, :C => 0.4}, {:G => 0.1, :T => 0.6, :A => 0.2, :C => 0.1}, {:G => 0.0, :T => 0.0, :A => 1.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 1.0, :T => 0.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 1.0, :A => 0.0, :C => 0.0}, {:G => 0.0, :T => 0.5, :A => 0.0, :C => 0.5}]
+Background matrix: {:G => 0.246666666666667, :T => 0.27, :A => 0.256666666666667, :C => 0.226666666666667}
+
+- - - - - D O N E - - - - -
+
+
+
+
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "gibbs.rb"; Gibbs.new(:combine_data? => false).run_and_print
+- - - - - R U N N I N G   G I B B S - - - - -
+Note: 1000 iteration warm up, 10000 steps after the warm up period.
+
+Calculating the most likely motif location with a product.
+
+Finished warming up.
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 0
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 0
+
+Motif matrix: [{:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.1, :A => 0.0, :C => 0.1, :G => 0.2}, {:T => 0.0, :A => 0.4, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 0.4}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.241666666666667, :C => 0.258333333333333, :G => 0.233333333333333}
+
+Calculating the most likely motif location with a sum.
+
+Finished warming up.
+
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 0
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 0
+
+Motif matrix: [{:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.3, :A => 0.0, :C => 0.1, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.1, :G => 0.3}, {:T => 0.0, :A => 0.4, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 0.4}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.4, :A => 0.0, :C => 0.0, :G => 0.0}]
+Background matrix: {:T => 0.258333333333333, :A => 0.225, :C => 0.283333333333333, :G => 0.233333333333333}
+
+- - - - - D O N E - - - - -
+
+
+
+
+
+[evansenter@169-231-69-107 ~/Source/evan/school/CS167/Assignments/code/objects]$ irb
+>> require "gibbs.rb"; Gibbs.new.run_and_print
+- - - - - R U N N I N G   G I B B S - - - - -
+Note: 1000 iteration warm up, 10000 steps after the warm up period.
+
+Calculating the most likely motif location with a product.
+
+Finished warming up.
+
+Sequence [AAATCCCTTTTGTCTATTGTTTGAAAGTGGTGGGGCCATG]'s motif starts at index 12
+Sequence [AAGGACGATATTGTTTTCGATTGTTCCAGAGATACATTTC]'s motif starts at index 16
+Sequence [ACGAATAGTCTATCTATTGTTTCTGAGAAAGACACCCATG]'s motif starts at index 12
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATATTGTGTTTATTGTTTACCTACCGAACACATATGACAG]'s motif starts at index 8
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GAGTCCCCCTTTCTCTTATTGTTCCAGTGGTTCGTCCACC]'s motif starts at index 14
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [GGCTTTGGGACAGTCATGGCCAATTGTTCGTTATTCTGCC]'s motif starts at index 19
+Sequence [TACGTTTAGTCGGTCTTAATTGTTCCAGTACCCAGGTCGG]'s motif starts at index 15
+Sequence [TCGGCGGTGGTAGACCTTATTGTTCCGCAACCACATCTAT]'s motif starts at index 15
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+Sequence [TTAGGGAGTACTCATTTCATTGTTTATAATAATGCGATCA]'s motif starts at index 15
+Sequence [TTGAGCTAAATTATCTTTATTGTTTCGTGGCCGCATGATG]'s motif starts at index 15
+
+Motif matrix: [{:T => 1.0, :A => 0.0, :C => 0.4, :G => 0.0}, {:T => 0.9, :A => 0.0, :C => 0.5, :G => 0.0}, {:T => 0.6, :A => 0.2, :C => 0.2, :G => 0.4}, {:T => 0.0, :A => 1.4, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 1.4}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.8, :A => 0.0, :C => 0.6, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.254761904761905, :C => 0.245238095238095, :G => 0.233333333333333}
+
+Calculating the most likely motif location with a sum.
+
+Finished warming up.
+
+Sequence [AAATCCCTTTTGTCTATTGTTTGAAAGTGGTGGGGCCATG]'s motif starts at index 12
+Sequence [AAGGACGATATTGTTTTCGATTGTTCCAGAGATACATTTC]'s motif starts at index 16
+Sequence [ACGAATAGTCTATCTATTGTTTCTGAGAAAGACACCCATG]'s motif starts at index 12
+Sequence [ATACGGCTTGTCTTGATTGTTTATCCAATTGTCGGAGCTC]'s motif starts at index 12
+Sequence [ATATTGTGTTTATTGTTTACCTACCGAACACATATGACAG]'s motif starts at index 8
+Sequence [ATTCAACCTACACTCTCATTGTTTACATGGTGGATAGGGG]'s motif starts at index 14
+Sequence [CACCTGCGACGCCTTTCGATTGTTTAATAGTTGACACAGT]'s motif starts at index 15
+Sequence [GAGTCCCCCTTTCTCTTATTGTTCCAGTGGTTCGTCCACC]'s motif starts at index 14
+Sequence [GCCCTATTCATTGGACGATTGATTGTTTCGTCTCCCCGTG]'s motif starts at index 18
+Sequence [GGCTTTGGGACAGTCATGGCCAATTGTTCGTTATTCTGCC]'s motif starts at index 19
+Sequence [TACGTTTAGTCGGTCTTAATTGTTCCAGTACCCAGGTCGG]'s motif starts at index 15
+Sequence [TCGGCGGTGGTAGACCTTATTGTTCCGCAACCACATCTAT]'s motif starts at index 15
+Sequence [TCTTGTTCCAGTCTATTGTTCAGAAGAGGACTACTTCAAA]'s motif starts at index 11
+Sequence [TTAGGGAGTACTCATTTCATTGTTTATAATAATGCGATCA]'s motif starts at index 15
+Sequence [TTGAGCTAAATTATCTTTATTGTTTCGTGGCCGCATGATG]'s motif starts at index 15
+
+Motif matrix: [{:T => 1.0, :A => 0.0, :C => 0.4, :G => 0.0}, {:T => 0.9, :A => 0.0, :C => 0.5, :G => 0.0}, {:T => 0.6, :A => 0.2, :C => 0.2, :G => 0.4}, {:T => 0.0, :A => 1.4, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.0, :A => 0.0, :C => 0.0, :G => 1.4}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 1.4, :A => 0.0, :C => 0.0, :G => 0.0}, {:T => 0.8, :A => 0.0, :C => 0.6, :G => 0.0}]
+Background matrix: {:T => 0.266666666666667, :A => 0.254761904761905, :C => 0.245238095238095, :G => 0.233333333333333}
+
+- - - - - D O N E - - - - -

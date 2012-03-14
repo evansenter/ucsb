@@ -1,0 +1,36 @@
+<h1>Editing order number: <%= @order.id %> for <%= @order.name %></h1>
+
+<% form_for @order, :url => { :controller => :login, :action => :update_order, :id => @order.id } do |f| %>
+<%= error_messages_for :order %>
+  
+  <p>
+    <b>Address</b><br />
+    <%= f.text_area :address %>
+  </p>
+
+  <% for item in @order.ordered_items %>
+    <br><%= Product.find(item.product_id).title %> x<%= item.quantity %>
+    (<%= link_to "+1", { :action => "adjust_quantity",
+			:id => item.id,
+			:adjustment => 1},
+		      {	:method => "post",
+			:confirm => "Are you sure you want to adjust the quantity of this item?" } %>
+    / <%= link_to "-1", { :action => "adjust_quantity",
+			:id => item.id,
+			:adjustment => -1},
+		      {	:method => "post",
+			:confirm => "Are you sure you want to adjust the quantity of this item?" } %>)
+    <br>
+  <% end %>
+
+  <% if admin? %>
+  <p>
+    <b>Shipped Status</b><br />
+    <%= f.check_box :shipped_status %>
+  </p>
+  <% end %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>

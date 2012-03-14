@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C""DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<title>Gaucho Instrument Shop<%= ": " << controller.action_name unless controller.action_name == "index" %></title>
+<%= stylesheet_link_tag "store", :media => "all"%>
+<%= javascript_include_tag :defaults %>
+</head>
+
+<body>
+<%= @page_title || "Gauchos Instruments" %>
+
+<% hidden_div_if(@cart.items.empty?, :id => "cart") %>
+  <%= render(:partial => "cart", :object => @cart) %>
+</div>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield %>
+
+<br><br>
+<fieldset><legend>Store Navigation</legend>
+<%= link_to "Store home", :action => :index %> | <%= link_to "Login", { :controller => :login, :action => :login } %> | <%= link_to "Logout", { :controller => :login, :action => :logout } %>
+</fieldset>
+
+</body>
+</html>

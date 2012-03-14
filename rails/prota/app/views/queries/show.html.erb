@@ -1,0 +1,26 @@
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back', queries_path %>
+
+<p>
+  <h2>Query results.</h2>
+  <p><b>SQL statement: </b><%= @query.protein_conditions %></p>
+  <p><b>Datasource preferences: </b><%= (ds_string = @query.ds_params_hash.map {|key, value| "#{key} -> #{value}, " }.to_s)[0, ds_string.length - 2] %></p>
+</p>
+
+<table>
+  <th>ID 1</th>
+  <th>ID 2</th>
+  <%= (1..num_datasources).map {|i| "<th>DS #{i}</th>"} %>
+  <th>Normalized total score</th>
+
+  <% for protein_pair in @proteins %>
+    <tr class=<%= list_cycle %>>
+      <td><%= protein_pair.protein_1_id %></td>
+      <td><%= protein_pair.protein_2_id %></td>
+      <%= protein_weights(protein_pair, @query.ds_params_hash) %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back', queries_path %>

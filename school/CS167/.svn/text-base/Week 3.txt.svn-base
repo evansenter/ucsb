@@ -1,0 +1,53 @@
+[Course Outline, Week 3]
+
+* New reading assignment: Molecular clock hypothesis paper
+
+[Definitions]
+
+Ortholog: Two genes connected by a speciation event
+Paralog: Two genes connected by a duplication event
+Xenolog: To genes connected by a horizontal transfer
+Homologs: Any of an ortholog, paralog or homolog
+Non-degenerate site: A nucleotide within a gene that can't be changed without having repercussions to the amino acid produced
+k-fold degenerate site: A nucleotide within a gene that can be converted k ways without having repercussions to the amino acid produced
+TATA box: The sequence TATAAA in eukaryotes and archaea is the core promoter for transcription, and usually found 25 b.p. upstream of the translation start
+Stem loop (Hairpin loop): Occurs when a (usually) palindromic region of DNA's base pairs bind together to create a double-helix ending in an unpaired loop. This is a common secondary structure for RNA. (Note that in RNA, guanine - uracil has two hydrogen bonds and is considered favorable).
+
+Eigenvalues!
+
+[Homologous Genes and Genetic Variations]
+
+- There are functional and selective constraints on a gene that causes a variable rate of evolution
+
+[Eukaryotic Gene Sequence]
+
+- Order:
+  1. 5' flanking region (Enhancers / promoters)
+  2. Transcription initiation
+  3. Untranslated region (5' UTR)
+  4. Translation initiation (AUG, Methionine)
+  5. Exons / introns
+  6. Translation termination (Stop codon)
+  7. Untranslated region (3' UTR)
+  8. 3' flanking region
+  9. Pseudogenes (Very high rate of change because they have no function)
+  
+[Jukes-Cantor Model]
+
+- An application of the Markov Chain analysis to determine the distance back in time for the common ancestor of two sequences
+- Observed rate of substitutions = p = (3/4)(1 - (1 - 4a)^t)
+  
+[Allele Frequency]
+
+p^2 + 2pq + q^2 = 1, p + q = 1
+
+[Score Matrix]
+
+Bayes' theorem: P(A | B) = (P(B | A)P(A)) / P(B)
+
+- Higher scores means a greater similarity
+x = ACT
+y = AGT
+log(P(x,y | M (Related)) / P(x,y | R (Random))) = log(P(AA | M) * P(CG | M)) + log(P (TT | M) / P(AA | R)) + log(P(CG | R) * P (TT | R))
+
+P(x, M) = P(M) * P(x | M) + ... = P(x)

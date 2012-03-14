@@ -1,0 +1,40 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/rails/capitola/tmp
+http://wush.net/svn/sbdev
+
+
+
+2008-04-30T20:56:00.839933Z
+333
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+420cdfb7-4ac7-4121-a96d-241bc5351e40
+
+pids
+dir
+
+cache
+dir
+
+sessions
+dir
+
+sockets
+dir
+

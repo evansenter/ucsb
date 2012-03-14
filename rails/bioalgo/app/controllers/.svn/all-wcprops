@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/sbdev/!svn/ver/459/evan/rails/bioalgo/app/controllers
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/app/controllers/application.rb
+END
+comments_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/app/controllers/comments_controller.rb
+END
+posts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/sbdev/!svn/ver/459/evan/rails/bioalgo/app/controllers/posts_controller.rb
+END

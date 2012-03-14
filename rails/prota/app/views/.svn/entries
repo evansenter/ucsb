@@ -1,0 +1,49 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/rails/prota/app/views
+http://wush.net/svn/sbdev
+
+
+
+2008-04-28T22:47:03.112571Z
+327
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+420cdfb7-4ac7-4121-a96d-241bc5351e40
+
+histograms
+dir
+
+layouts
+dir
+
+protein_names
+dir
+
+networks
+dir
+
+datasources
+dir
+
+dictionaries
+dir
+
+queries
+dir
+

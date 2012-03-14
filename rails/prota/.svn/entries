@@ -1,0 +1,82 @@
+8
+
+dir
+639
+http://wush.net/svn/sbdev/evan/rails/prota
+http://wush.net/svn/sbdev
+
+
+
+2008-05-09T18:30:56.486846Z
+375
+evansenter
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+420cdfb7-4ac7-4121-a96d-241bc5351e40
+
+test
+dir
+
+app
+dir
+
+tmp
+dir
+
+Rakefile
+file
+
+
+
+
+2008-09-24T00:42:29.000000Z
+17f2f134da4cd31ea095d5868ca89e86
+2008-04-23T02:39:00.513449Z
+302
+evansenter
+
+script
+dir
+
+config
+dir
+
+db
+dir
+
+doc
+dir
+
+lib
+dir
+
+vendor
+dir
+
+README
+file
+
+
+
+
+2008-09-24T00:42:29.000000Z
+d4905ed25b5bebb47e89111439e5b59d
+2008-04-28T22:47:03.112571Z
+327
+evansenter
+
+public
+dir
+

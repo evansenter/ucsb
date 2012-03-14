@@ -1,0 +1,127 @@
+public void Build(int mode, boolean debug) {
+  // mode 0 and 1 combine the ion data outside this function.  Mode 
+  // 2 and 3 combine charge states within this function   
+  
+  double cost = 0;
+  double parent_t;
+  double mass;
+  double best_score = -1;
+  int number_skipped = 0;
+      
+  // better not be more than 4 million nodes, or trouble
+  // Means the max number of phosphorylation sites we can handle
+  // is 13 (3^13 ~ 1.5million)
+  int numnodes = 0;
+  for (int i=1; i<=ionsites.length-1; i++) {
+    numnodes += (int) java.lang.Math.pow(3, i);
+  }
+  Nodes = new double[numnodes];
+  java.util.Arrays.fill(Nodes, 0.0);
+  
+  // Compute initial node weight (ie, cost of everything
+  // before the first ion)
+  if (mode < 2 && ionsites[0] > 0) {
+    profiles[zstate-1].CreateProfile(refseq, ion, zstate, null, ionsites[0]);
+    cost = profiles[zstate-1].Cost(0, ionsites[0]-1, spectrum);
+  } else if (mode >=2 && ionsites[0] > 0)  {
+    //profiles[0].CreateProfile(refseq, ion, 0, null, ionsites[0]);
+    //profiles[1].CreateProfile(refseq, ion, 1, null, ionsites[0]);
+    //profiles[2].CreateProfile(refseq, ion, 2, null, ionsites[0]);
+    
+    //for (int i=0; i<Globals.MAXZSTATES; i++) {
+    for (int i=zstate-1; i >= ((zstate - 1) * (1 - (int) mode/2) ); i--) {
+      profiles[i].CreateProfile(refseq, ion, i, null, ionsites[0]);
+      cost = profiles[i].Cost(0, ionsites[0]-1, spectrum);
+    }
+  }   
+  // store the initial weight in each of the three top nodes
+  if (debug)
+    System.out.println("Initializing 3 nodes to " + String.valueOf(cost));
+  
+  if (ionsites.length > 2) {
+    Nodes[0] = Nodes[1] = Nodes[2] = cost;
+  }
+  
+  // adjust the parent ion weight for the charge state.  Doesn't
+  // matter if we are going through all charge states since if it doesn't
+  // match with one all 2 or 3 are rejected
+  if (ion == 'y')
+      parent_t = (parent)/zstate;
+  else
+      parent_t = (parent - Globals.WATERWEIGHT)/zstate;
+  
+      
+  // iterate through the tree. This is a breadth first traversal of the tree 
+  // (not the most efficient but most programming friendly)
+  //  The path lengths are calculated as the tree is formed.  
+  for (int level=1; level < ionsites.length; level++) {
+    startnode = 0;
+    int nodes_at_level = 0;
+                
+    for (int i=1; i<=level-1; i++) {
+      startnode += (int) java.lang.Math.pow(3, i);
+    } 
+    nodes_at_level = (int) java.lang.Math.pow(3, level);
+    
+    // calculate the cost and at up the path length for
+    // each node at this level  
+    NodeLoop:
+    for (int node = 0; node < nodes_at_level; node++) {
+      
+      Modifier[] M = new Modifier[level];
+      
+      // calc the modification sites for this node
+      // function converts a numerical node # into an
+      // array of modifiers
+      ConvertNodeToModifier(node, M);
+      
+      
+      // calc the profiles.  In mode 2 + 3, all the zstates are calc
+      for (int i=zstate-1; i >= ((zstate - 1) * (1 - (int) mode/2) ); i--) {
+        profiles[i].CreateProfile(refseq, ion, i+1, M, ionsites[level]);
+      }
+      mass = profiles[zstate-1].GetProfile(ionsites[level]-1);
+      
+      // determine if we skip this node or calc. Skipped when 
+      // the mass of the node is not equal to the parent node (only in the final leafs),
+      // or this node has a Y being modified by -18.
+      if (level == ionsites.length-1 && java.lang.Math.abs(mass-parent_t) > 2) {
+        continue;
+      } else if (Yionsites != null) {
+        for (int i : Yionsites) {
+          for (Modifier j : M) {
+            if (j.pos == i && j.val == Globals.MODENC[1])
+              continue NodeLoop;
+          }
+        }
+      }
+      
+      // Calc parent cost, and add up the cost for the charge states 
+      // (if indicated by the mode)
+      cost = 0;
+      double parentcost = FindParentCost(level, node);
+      
+      // Skipping leaf conditions - If we are at a leaf and there has been one best score computed 
+      //   and the parent cost of this leaf is > the best score...
+      if (level + 1 == ionsites.length && parentcost >= best_score && best_score != -1 ) {
+        // Set this leaf's score worse than the best score and skip actually computing it.
+        number_skipped++;
+        Nodes[startnode + node] = best_score + 1;
+        continue;
+      }        
+      // Right now the last amino acid is checked - DIFFERENT THAN BIOWORKS!
+      // Leaving for now
+      for (int i=zstate-1; i >= ((zstate - 1) * (1 - (int) mode/2) ); i--) {
+        cost += profiles[i].Cost(ionsites[level-1], ionsites[level]-1, spectrum);
+      }
+      Nodes[startnode+node] += parentcost + cost;
+              
+      // Hook to set the best score the first time. If we're at a leaf and there isn't a best score, or the one just calculated is better, commit it.
+      if (level + 1 == ionsites.length && (Nodes[startnode + node] < best_score || best_score == -1))
+        best_score = Nodes[startnode + node];
+    }            
+  }
+
+  if (debug && number_skipped > 0)    
+    System.out.println("Skipped " + number_skipped + " nodes.");
+}

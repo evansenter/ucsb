@@ -1,0 +1,38 @@
+<p>
+  <b>Elem:</b>
+  <%=h @histogram.elem_id %>
+</p>
+
+<p>
+  <b>Datasource:</b>
+  <%=h @histogram.datasource %>
+</p>
+
+<p>
+  <b>Max score:</b>
+  <%=h @histogram.max_score %>
+</p>
+
+<p>
+  <b>Min score:</b>
+  <%=h @histogram.min_score %>
+</p>
+
+<p>
+  <b>Num groups:</b>
+  <%=h @histogram.num_groups %>
+</p>
+<p>
+  <b>Histogram table:</b><br />
+  <% @table.each_index do |i| %>
+  <br /><b><%= "Group #{i}" %></b><br />
+    <% @table[i].each_index do |j| %>
+      <i><%= "Distance #{j}" %></i><br />
+      <%= @table[i][j].vertices.sort.map {|k| k.to_s << " " unless k.nil?}.to_s << " - <i>" %>
+      <%= link_to @table[i][j].edges.size.to_s << " edges</i>", { :controller => "queries", :action => "show", :id => Query.new(:datasources => {"ds_#{@histogram.datasource}_enabled" => "1", "ds_#{@histogram.datasource}_weight" => "1"}, :protein_id_list => @table[i][j].vertices.map {|k| k.to_s << ","}.to_s).id}, :confirm => "This isn't going to work, the Query in a/v/h/show.html.erb wasn't created." %><br />
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_histogram_path(@histogram) %> |
+<%= link_to 'Back', histograms_path %>

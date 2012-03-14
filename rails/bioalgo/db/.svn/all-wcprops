@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/sbdev/!svn/ver/460/evan/rails/bioalgo/db
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/sbdev/!svn/ver/302/evan/rails/bioalgo/db/schema.rb
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/sbdev/!svn/ver/460/evan/rails/bioalgo/db/development.sqlite3
+END

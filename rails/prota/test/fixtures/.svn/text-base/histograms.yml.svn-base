@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  elem_id: 1
+  datasource: 1
+  max_score: 1.5
+  min_score: 1.5
+  num_groups: 1
+
+two:
+  elem_id: 1
+  datasource: 1
+  max_score: 1.5
+  min_score: 1.5
+  num_groups: 1

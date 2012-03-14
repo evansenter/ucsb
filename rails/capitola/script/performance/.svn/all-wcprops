@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/script/performance
+END
+benchmarker
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/script/performance/benchmarker
+END
+profiler
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/script/performance/profiler
+END
+request
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/sbdev/!svn/ver/333/evan/rails/capitola/script/performance/request
+END

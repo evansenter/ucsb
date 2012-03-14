@@ -1,0 +1,148 @@
+<h1>Submit a new medical history form.</h1>
+
+<%= error_messages_for :medical_history %>
+
+<% form_for(@medical_history) do |f| %>
+
+	<h3>Patient Information</h3>
+
+	<p>
+	  <b>SS/HIC/Patient ID</b><br />
+	  <%= f.text_field :patient_id %>
+	</p>
+	<p>
+	  <b>Patient</b><br />
+	  <%= f.text_field :patient_name %>
+	</p>
+	<p>
+	  <b>Address</b><br />
+	  <%= f.text_field :patient_address %>
+	</p>
+	<p>
+	  <b>City</b><br />
+	  <%= f.text_field :patient_city %>
+	</p>
+	<p>
+	  <b>State</b><br />
+	  <%= f.text_field :patient_state %>
+	</p>
+	<p>
+	  <b>Zip</b><br />
+	  <%= f.text_field :patient_zip %>
+	</p>
+	<p>
+	  <b>Email</b><br />
+	  <%= f.text_field :patient_email %>
+	</p>
+	<p>
+	  <b>Birthday</b><br />
+	  <%= f.text_field :patient_birthdate %>
+	</p>
+	<p>
+	  <b>Gender</b><br />
+	  <%= f.select :patient_sex, MedicalHistory::GENDER %>
+	</p>
+	<p>	
+	  <b>Relationship Status</b><br />
+	  <%= f.select :patient_relationship_status, MedicalHistory::RELATIONSHIP_STATUS %>
+	</p>
+	<p>
+	  <b>Occupation</b><br />
+	  <%= f.text_field :patient_occupation %>
+	</p>
+
+	<h3>Dental Insurance</h3>
+
+	<p>
+	  <b>Who is responsible for this account?</b><br />
+	  <%= f.text_field :account_owner %>
+	</p>
+	<p>
+	  <b>Relationship to Patient</b><br />
+	  <%= f.text_field :owners_relation_to_patient %>
+	</p>
+	<p>
+	  <b>Insurance Co.</b><br />
+	  <%= f.text_field :owners_insurance_co %>
+	</p>
+	<p>
+	  <b>Group #</b><br />
+	  <%= f.text_field :owners_group_number %>
+	</p>
+	<p>
+	  <b>Is the patient covered by additional insurance?</b><br />
+	  <%= f.select :patient_has_additional_insurance, MedicalHistory::BOOLEAN %>
+	</p>
+	<p>
+	  <b>Subscriber's Name</b><br />
+	  <%= f.text_field :subscriber_name %>
+	</p>
+	<p>
+	  <b>Subscriber's Birthdate</b><br />
+	  <%= f.text_field :subscriber_birthday %>
+	</p>
+	<p>
+	  <b>Subscriber's SS #</b><br />
+	  <%= f.text_field :subscriber_social %>
+	</p>
+	<p>
+	  <b>Relationship to Patient</b><br />
+	  <%= f.text_field :subscriber_relationship_to_patient %>
+	</p>
+	<p>
+	  <b>Insurance Co.</b><br />
+	  <%= f.text_field :subscriber_insurance_co %>
+	</p>
+	<p>
+	  <b>Group #</b><br />
+	  <%= f.text_field :subscriber_group_number %>
+	</p>
+
+	<h3>Phone Numbers</h3>
+
+	<p>
+	  <b>Home</b><br />
+	  <%= f.text_field :home_phone %>
+	</p>
+	<p>
+	  <b>Work</b><br />
+	  <%= f.text_field :work_phone %>
+	</p>
+	<p>
+	  <b>Cell</b><br />
+	  <%= f.text_field :cell_phone %>
+	</p>
+	<p>
+	  <b>Spouse's Work</b><br />
+	  <%= f.text_field :spouse_work_phone %>
+	</p>
+	<p>
+	  <b>Best time and place to reach you</b><br />
+	  <%= f.text_field :availability %>
+	</p>
+	<b>IN CASE OF EMERGENCY, CONTACT</b> (Specify someone who does not live in your household.)<br />
+	<p>
+	  <b>Name</b><br />
+	  <%= f.text_field :emergency_name %>
+	</p>
+	<p>
+	  <b>Relationship</b><br />
+	  <%= f.text_field :emergency_relationship %>
+	</p>
+	<p>
+	  <b>Home Phone</b><br />
+	  <%= f.text_field :emergency_home_phone %>
+	</p>
+	<p>
+	  <b>Work Phone</b><br />
+	  <%= f.text_field :emergency_work_phone %>
+	</p>
+
+<h3>Sumbit form</h3>
+
+	<p>
+	  <%= f.submit "Create" %>
+	</p>
+<% end %>
+
+<%= link_to 'Back', medical_histories_path %>

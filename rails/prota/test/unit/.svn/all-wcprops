@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit
+END
+protein_name_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit/protein_name_test.rb
+END
+query_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit/query_test.rb
+END
+network_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit/network_test.rb
+END
+datasource_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit/datasource_test.rb
+END
+histogram_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/sbdev/!svn/ver/302/evan/rails/prota/test/unit/histogram_test.rb
+END
